@@ -43,7 +43,7 @@ function analyzeImage() {
 
     // Show a loading status to the user
     document.getElementById("result").innerHTML = `
-        <div class="final-result" style="color: #666;">
+        <div class="final-result" style="color: #f8f5f5;">
             Processing thermal signatures... Please wait.
         </div>
     `;
