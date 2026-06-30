@@ -1,2 +1,4 @@
 Flask
+scikit-learn
+opencv-python-headless
 gunicorn
