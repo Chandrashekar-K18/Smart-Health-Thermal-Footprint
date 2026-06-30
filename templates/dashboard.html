@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>
+
+Smart Health Dashboard
+
+</title>
+
+<link
+rel="stylesheet"
+href="{{ url_for('static',filename='dashboard.css') }}">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<div class="sidebar">
+
+<div class="brand">
+
+🧬 SMART HEALTH
+
+</div>
+
+<button onclick="show('overview')">
+
+Overview
+
+</button>
+
+<button onclick="show('capture')">
+
+Live Capture
+
+</button>
+
+<button onclick="show('upload')">
+
+Upload Images
+
+</button>
+
+<button onclick="show('records')">
+
+Records
+
+</button>
+
+<button onclick="show('assistant')">
+
+AI Assistant
+
+</button>
+
+<a href="/logout">
+
+Logout
+
+</a>
+
+</div>
+
+<div class="content">
+
+<div id="overview">
+
+<div class="hero">
+
+<div class="slide">
+
+<div class="quote">
+
+Prevention Starts With Awareness
+
+</div>
+
+</div>
+
+<div class="slide">
+
+<div class="quote">
+
+Healthy Habits Build Better Futures
+
+</div>
+
+</div>
+
+<div class="slide">
+
+<div class="quote">
+
+Monitor Today Improve Tomorrow
+
+</div>
+
+</div>
+
+</div>
+
+<h1>
+
+Smart Health Monitoring
+
+</h1>
+
+<div class="daily-flow">
+
+<div class="daily-track">
+
+<div class="health-card">
+
+💧 Drink Enough Water
+
+<p>
+
+Supports hydration and body balance.
+
+</p>
+
+</div>
+
+<div class="health-card">
+
+🚶 Walk Daily
+
+<p>
+
+Supports circulation and wellness.
+
+</p>
+
+</div>
+
+<div class="health-card">
+
+😴 Sleep Well
+
+<p>
+
+Recovery supports healthy function.
+
+</p>
+
+</div>
+
+<div class="health-card">
+
+🥗 Balanced Diet
+
+<p>
+
+Maintain healthy energy levels.
+
+</p>
+
+</div>
+
+<div class="health-card">
+
+🧠 Reduce Stress
+
+<p>
+
+Supports healthier routines.
+
+</p>
+
+</div>
+
+<div class="health-card">
+
+❤️ Monitor Health
+
+<p>
+
+Observe patterns consistently.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div
+id="capture"
+
+style="display:none">
+
+<h1>
+
+MLX90640 Thermal Capture
+
+</h1>
+
+<div class="thermal">
+
+<div class="pulse">
+
+</div>
+
+<div class="thermal-title">
+
+Waiting For Thermal Camera
+
+</div>
+
+<div class="thermal-sub">
+
+Connect ESP32 + MLX90640
+
+</div>
+
+<div class="status">
+
+Status:
+Not Connected
+
+</div>
+
+<div class="device-grid">
+
+<div>
+
+Resolution
+
+<br>
+
+32 × 24
+
+</div>
+
+<div>
+
+Protocol
+
+<br>
+
+Serial
+
+</div>
+
+<div>
+
+Mode
+
+<br>
+
+Live
+
+</div>
+
+<div>
+
+Output
+
+<br>
+
+Thermal
+
+</div>
+
+</div>
+
+<div class="device-buttons">
+
+<button onclick="checkDevice()">
+
+Check Device
+
+</button>
+
+<button onclick="startMonitoring()">
+
+Start Monitoring
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<div
+id="upload"
+
+style="display:none">
+
+<h1>
+
+Thermal Image Analysis
+
+</h1>
+
+<div class="upload-container">
+
+<div class="upload-left">
+
+<label
+for="thermalInput"
+class="upload-zone">
+
+📤
+
+Upload Thermal Image
+
+</label>
+
+<input
+id="thermalInput"
+type="file"
+accept="image/*"
+hidden
+onchange="previewImage()">
+
+<img
+id="previewImage">
+
+<div
+id="imageActions"
+
+style="display:none">
+
+<button
+class="analyze"
+onclick="analyzeImage()">
+
+Analyze
+
+</button>
+
+<button
+class="analyze"
+onclick="replaceImage()">
+
+Replace
+
+</button>
+
+<button
+class="analyze"
+onclick="removeImage()">
+
+Remove
+
+</button>
+
+</div>
+
+</div>
+
+<div class="upload-right">
+
+<h2>
+
+Clinical Analysis
+
+</h2>
+
+<div id="result">
+
+Waiting for image upload
+
+</div>
+
+<div id="assistantResult">
+
+AI recommendations appear here
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div
+id="records"
+
+style="display:none">
+
+<h1>
+
+Patient Records
+
+</h1>
+
+<div class="box">
+
+No records available
+
+</div>
+
+</div>
+
+<div
+id="assistant"
+
+style="display:none">
+
+<h1>
+
+AI Health Assistant
+
+</h1>
+
+<div class="box">
+
+Waiting for thermal analysis
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="/static/script.js"></script>
+
+</body>
+
+</html>
